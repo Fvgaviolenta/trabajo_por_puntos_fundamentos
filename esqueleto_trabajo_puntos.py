@@ -1,5 +1,5 @@
 import json
-import funciones_trabajo_puntos3 as fn
+import funciones_trabajo_puntos as fn
 
 asientos_vacios= [
     [" \n"],
