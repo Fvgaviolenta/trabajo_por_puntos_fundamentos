@@ -33,17 +33,20 @@ def guardar_datos_pasajero():
         print("JSON creado con exito")
         
 def cargar_archivo_pasajeros():
-    with open("datos_pasajeros.json", "r") as archivo:
-        global datos_pasajeros
-        datos_pasajeros = json.load(archivo)
-        print("Datos cargados con exito")
-        for diccionario in datos_pasajeros:
-            for i in diccionario.values():
-                if i == diccionario["Asiento"]:
-                    for j in asientos:
-                        for z in j:
-                            if i == z:
-                              asientos[asientos.index(j)][j.index(z)] = 'x'  
+    try:
+        with open("datos_pasajeros.json", "r") as archivo:
+            global datos_pasajeros
+            datos_pasajeros = json.load(archivo)
+            print("Datos cargados con exito")
+            for diccionario in datos_pasajeros:
+                for i in diccionario.values():
+                    if i == diccionario["Asiento"]:
+                        for j in asientos:
+                            for z in j:
+                                if i == z:
+                                    asientos[asientos.index(j)][j.index(z)] = 'x' 
+    except FileNotFoundError:
+        print("No se encuentran datos guardados")
                         
                             
         
